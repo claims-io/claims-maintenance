@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+# ------
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Publishing..."
+
+TAG=$(date +%Y%m%dT%H%M)-$(git rev-parse --short HEAD)
+echo "  - Tag: ${TAG}"
+
+# login (if required)
+# docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+# tag container
+docker tag claims-maintenance claims/claims-maintenance:latest
+docker tag claims-maintenance claims/claims-maintenance:$TAG
+
+# push to docker
+docker push claims/claims-maintenance
+
+echo "Publishing complete!"
+
+# ------
