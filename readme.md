@@ -5,7 +5,7 @@
 
 ## Getting Started
 
-A super simple container to throw up when undergoing applcation wide maintenance.
+A super simple container to throw up when undergoing application wide maintenance.
 
 _Rules_
 
